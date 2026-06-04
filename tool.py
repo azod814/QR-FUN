@@ -98,4 +98,4 @@ print(Fore.RED + "[+] Scan QR Code Below\n")
 qr.print_ascii(invert=True)
 
 print(Style.RESET_ALL)
-```
+
