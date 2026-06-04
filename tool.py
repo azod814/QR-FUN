@@ -1,3 +1,4 @@
+```python
 import os
 import time
 import qrcode
@@ -32,8 +33,9 @@ banner = r"""
 ───██▌─▄▄▄─▐██
 ───▀██▌▐█▌▐██▀
 ▄██████─▀─██████▄
-Mask
-      
+
+      MASK
+
 """
 
 # =========================
@@ -42,39 +44,41 @@ Mask
 
 clear()
 
-# Loading Effect
-loading_text = "[+] Initializing QR System"
+boot_text = """
+╔══════════════════════════════╗
+║      MASK QR GENERATOR       ║
+╚══════════════════════════════╝
 
-for i in range(4):
-    print(Fore.RED + loading_text + "." * i)
-    time.sleep(0.3)
-    clear()
+[+] Connecting...
+[+] Loading Components...
+[+] Initializing QR Engine...
+[+] Access Granted...
 
-# Falling Effect
-for i in range(15):
-    clear()
-    print("\n" * (15 - i))
-    print(Fore.RED + banner)
-    time.sleep(0.04)
+"""
 
-time.sleep(0.5)
+# Typewriter Boot Screen
+for char in boot_text:
+    print(Fore.RED + char, end="", flush=True)
+    time.sleep(0.015)
 
-# Reveal Effect
+time.sleep(0.8)
 clear()
 
-for line in banner.splitlines():
-    print(Fore.RED + line)
-    time.sleep(0.01)
+# Typewriter Banner
+for char in banner:
+    print(Fore.RED + char, end="", flush=True)
+    time.sleep(0.0015)
+
+print("\n")
 
 # =========================
 # AUTHOR SECTION
 # =========================
 
-print("\n")
-print(Fore.WHITE + "═" * 70)
-print(Fore.RED + f"  AUTHOR : {AUTHOR}")
-print(Fore.RED + f"  GITHUB : {GITHUB}")
-print(Fore.WHITE + "═" * 70)
+print(Fore.WHITE + "═" * 60)
+print(Fore.RED + f" Author : {AUTHOR}")
+print(Fore.RED + f" GitHub : {GITHUB}")
+print(Fore.WHITE + "═" * 60)
 print()
 
 # =========================
@@ -92,7 +96,7 @@ qr.make(fit=True)
 
 print(Fore.RED + "[+] Scan QR Code Below\n")
 
-print(Fore.RED)
 qr.print_ascii(invert=True)
 
 print(Style.RESET_ALL)
+```
